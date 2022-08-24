@@ -18,7 +18,6 @@ import {
 import * as React from 'react'
 import {FiEdit2, FiTrash2} from 'react-icons/fi'
 import {IoArrowDown} from 'react-icons/io5'
-import {Rating} from './Rating'
 import {members} from './data'
 
 export const MemberTable = (props: TableProps) => (
@@ -67,11 +66,6 @@ export const MemberTable = (props: TableProps) => (
           </Td>
           <Td>
             <Text color="muted">{member.role}</Text>
-          </Td>
-          <Td>
-            <Text color="muted">
-              <Rating defaultValue={member.rating} size="xl" />
-            </Text>
           </Td>
           <Td>
             <HStack spacing="1">

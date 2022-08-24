@@ -242,7 +242,7 @@
   dependencies:
     "@chakra-ui/shared-utils" "2.0.1"
 
-"@chakra-ui/icons@^2.0.2":
+"@chakra-ui/icons@^2.0.9":
   version "2.0.9"
   resolved "https://registry.yarnpkg.com/@chakra-ui/icons/-/icons-2.0.9.tgz#35edcf9c61b8e158a5d03aeda6bd4e756960dfc7"
   integrity sha512-6xvV2rC8wATgfnRH+fC9mi0nLcgKjhHKO29lV1pGioVI0yWK0dqc//zjcyBhMMpW5ABnSfig7ujVBf3op/Syzg==
@@ -563,7 +563,7 @@
   dependencies:
     "@chakra-ui/utils" "2.0.9"
 
-"@chakra-ui/react@^2.2.1":
+"@chakra-ui/react@^2.2.9":
   version "2.2.9"
   resolved "https://registry.yarnpkg.com/@chakra-ui/react/-/react-2.2.9.tgz#0e5500a4dc4a45ae941def4b1b3b1c1b9aa8dd57"
   integrity sha512-biW1C8b+pmw9gvpTWZOgSU9qxnOu1/nqjYsCY9eznSHIr50E3jeO987D2KEuegHPb7O0PfRdGmEaZzHnUTNweg==
@@ -906,6 +906,11 @@
   resolved "https://registry.yarnpkg.com/@emotion/weak-memoize/-/weak-memoize-0.3.0.tgz#ea89004119dc42db2e1dba0f97d553f7372f6fcb"
   integrity sha512-AHPmaAx+RYfZz0eYu6Gviiagpmiyw98ySSlQvCUhVGDRtDFe4DBS0x1bSjdF3gqUDYOczB+yYvBTtEylYSdRhg==
 
+"@fontsource/inter@^4.5.12":
+  version "4.5.12"
+  resolved "https://registry.yarnpkg.com/@fontsource/inter/-/inter-4.5.12.tgz#a6236379bf710658db048d7087ec588754962cb6"
+  integrity sha512-bGKk4/8tube/nCk8hav0ZDBVbzJzc7m0Vt4xF5p15IN4YImwGdtKG38Oq5bU8xHNS+VfvbFFCepgQNj7Pr/Lvg==
+
 "@motionone/animation@^10.12.0":
   version "10.14.0"
   resolved "https://registry.yarnpkg.com/@motionone/animation/-/animation-10.14.0.tgz#2f2a3517183bb58d82e389aac777fe0850079de6"
@@ -1228,6 +1233,11 @@ focus-lock@^0.11.2:
   integrity sha512-pZ2bO++NWLHhiKkgP1bEXHhR1/OjVcSvlCJ98aNJDFeb7H5OOQaO+SKOZle6041O9rv2tmbrO4JzClAvDUHf0g==
   dependencies:
     tslib "^2.0.3"
+
+focus-visible@^5.2.0:
+  version "5.2.0"
+  resolved "https://registry.yarnpkg.com/focus-visible/-/focus-visible-5.2.0.tgz#3a9e41fccf587bd25dcc2ef045508284f0a4d6b3"
+  integrity sha512-Rwix9pBtC1Nuy5wysTmKy+UjbDJpIfg8eHjw0rjZ1mX4GNLz1Bmd16uDpI3Gk1i70Fgcs8Csg2lPm8HULFg9DQ==
 
 framer-motion@^6.3.0:
   version "6.5.1"
