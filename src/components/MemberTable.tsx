@@ -24,7 +24,7 @@ export const MemberTable = (props: TableProps) => (
   <Table {...props}>
     <Thead>
       <Tr>
-        <Th>
+        {/* <Th>
           <HStack spacing="3">
             <Checkbox />
             <HStack spacing="1">
@@ -37,7 +37,7 @@ export const MemberTable = (props: TableProps) => (
         <Th>Email</Th>
         <Th>Role</Th>
         <Th>Rating</Th>
-        <Th></Th>
+        <Th></Th> */}
       </Tr>
     </Thead>
     <Tbody>
