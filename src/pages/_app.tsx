@@ -15,7 +15,6 @@ function MyApp({Component, pageProps}: AppProps) {
         onError: err => {
           console.error(err)
         },
-        provider: localStorageProvider,
       }}
     >
       <FormulaeContextProvider>
