@@ -3,7 +3,7 @@ import useSWR from 'swr'
 import FuzzySearch from 'fuzzy-search'
 
 const url = 'https://formulae.brew.sh/api/formula.json'
-const keys = ['name', 'full_name', 'desc']
+const keys = ['name', 'full_name']
 
 // create context
 const FormulaeContext = createContext(null)
