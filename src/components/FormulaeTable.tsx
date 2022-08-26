@@ -35,10 +35,11 @@ const Row = ({index, data}: {index: number; data: any}) => (
           </Box>
         </HStack>
       </Td>
-
       <Td>
         <ChakraNextLink href={data[index].homepage ?? ''} isExternal>
-          <Text color="muted">{data[index].desc}</Text>
+          <Box>
+            <Text color="muted">{data[index].desc}</Text>
+          </Box>
         </ChakraNextLink>
       </Td>
     </Tr>
