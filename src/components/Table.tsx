@@ -13,6 +13,7 @@ export const Table = () => {
       bg="bg-surface"
       boxShadow={{base: 'none', md: useColorModeValue('sm', 'sm-dark')}}
       borderRadius={useBreakpointValue({base: 'none', md: 'lg'})}
+      width={{base: 'full', md: 'auto'}}
     >
       <Stack spacing="5">
         <Box overflowX="auto">
