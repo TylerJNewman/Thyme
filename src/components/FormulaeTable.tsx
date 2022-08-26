@@ -20,10 +20,6 @@ import {FiLink} from 'react-icons/fi'
 import ChakraNextLink from './ChakraNextLink'
 import React from 'react'
 
-{
-  /* <ScaleFade initialScale={0} in={true}> */
-}
-
 const Row = ({index, data}: {index: number; data: any}) => (
   <>
     <Td width="100%">
