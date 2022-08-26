@@ -22,6 +22,7 @@ import {FiEdit2, FiTrash2, FiLink} from 'react-icons/fi'
 import {IoArrowDown} from 'react-icons/io5'
 import Link from 'next/link'
 import {Link as ChakraLink} from '@chakra-ui/react'
+import {LogoSmall} from './LogoSmall'
 
 function ChakraNextLink({href, children, ...props}) {
   return (
@@ -75,6 +76,11 @@ export const MemberTable = (props: TableProps) => {
                   src={data.avatarUrl}
                   boxSize="10"
                 /> */}
+                <IconButton
+                  variant="ghost"
+                  icon={<LogoSmall fontSize="1.25rem" />}
+                  aria-label="Homepage"
+                />
                 <Box>
                   <Text fontWeight="medium">{data.full_name}</Text>
                   <Text color="muted">{data.versions.stable}</Text>
