@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import {
   Box,
   Icon,
@@ -9,18 +9,15 @@ import {
   Text,
 } from '@chakra-ui/react'
 import {FiSearch} from 'react-icons/fi'
-
-// const options = {
-//   includeScore: true,
-//   // Search in `author` and in `tags` array
-//   keys: ['name', 'full_name', 'desc', 'homepage', 'versions'],
-// }
-
-// const fuse = new Fuse(list, options)
-
-//   const result = fuse.search('tion')
+import {FormulaeContext} from '../context/FormulaaContext'
 
 const SectionHeader = () => {
+  const {setSearchPattern} = useContext(FormulaeContext)
+
+  const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchPattern(e.target.value)
+  }
+
   return (
     <Box as="section" pt={{base: '4', md: '8'}} pb={{base: '3', md: '6'}}>
       <Stack spacing="5">
@@ -38,7 +35,7 @@ const SectionHeader = () => {
             <InputLeftElement pointerEvents="none">
               <Icon as={FiSearch} color="muted" boxSize="5" />
             </InputLeftElement>
-            <Input placeholder="Search" />
+            <Input placeholder="Search" onChange={handleSearch} />
           </InputGroup>
         </Stack>
       </Stack>

@@ -21,13 +21,12 @@ export const MemberTable = (props: TableProps) => {
 
   if (error) return <div>failed to load</div>
   if (!data) return <div>loading...</div>
-  let firstPage = data.slice(0, 100)
 
   return (
     <Table {...props}>
       <Tbody>
-        {firstPage.map(data => (
-          <Tr key={data.name}>
+        {data.slice(0, 30).map((data, i) => (
+          <Tr key={data.name ?? i}>
             <Td>
               <HStack spacing="3">
                 <IconButton
@@ -37,7 +36,7 @@ export const MemberTable = (props: TableProps) => {
                 />
                 <Box>
                   <Text fontWeight="medium">{data.full_name}</Text>
-                  <Text color="muted">{data.versions.stable}</Text>
+                  <Text color="muted">{data.versions?.stable}</Text>
                 </Box>
               </HStack>
             </Td>
@@ -46,7 +45,7 @@ export const MemberTable = (props: TableProps) => {
               <Text color="muted">{data.desc}</Text>
             </Td>
             <Td>
-              <ChakraNextLink href={data.homepage} isExternal color="red">
+              <ChakraNextLink href={data.homepage ?? ''} isExternal color="red">
                 <IconButton
                   variant="ghost"
                   icon={<FiLink fontSize="1.25rem" />}
