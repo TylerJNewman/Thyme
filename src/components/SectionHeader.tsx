@@ -1,8 +1,6 @@
 import React from 'react'
 import {
   Box,
-  Container,
-  Divider,
   Icon,
   Input,
   InputGroup,
@@ -11,6 +9,16 @@ import {
   Text,
 } from '@chakra-ui/react'
 import {FiSearch} from 'react-icons/fi'
+
+// const options = {
+//   includeScore: true,
+//   // Search in `author` and in `tags` array
+//   keys: ['name', 'full_name', 'desc', 'homepage', 'versions'],
+// }
+
+// const fuse = new Fuse(list, options)
+
+//   const result = fuse.search('tion')
 
 const SectionHeader = () => {
   return (

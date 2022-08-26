@@ -5,6 +5,7 @@ import {AppProps} from 'next/app'
 import {theme} from '../theme'
 import localStorageProvider from '../lib/localStorageProvider'
 import fetcher from '../lib/fetchJson'
+import {FormulaeContextProvider} from '../context/FormulaaContext'
 
 function MyApp({Component, pageProps}: AppProps) {
   return (
@@ -17,9 +18,11 @@ function MyApp({Component, pageProps}: AppProps) {
         provider: localStorageProvider,
       }}
     >
-      <ChakraProvider theme={theme}>
-        <Component {...pageProps} />
-      </ChakraProvider>
+      <FormulaeContextProvider>
+        <ChakraProvider theme={theme}>
+          <Component {...pageProps} />
+        </ChakraProvider>
+      </FormulaeContextProvider>
     </SWRConfig>
   )
 }
