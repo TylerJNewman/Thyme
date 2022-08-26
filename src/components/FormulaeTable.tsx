@@ -35,8 +35,12 @@ const Row = ({index, data}: {index: number; data: any}) => (
             aria-label="Homepage"
           />
           <Box>
-            <Text fontWeight="medium">{data[index].full_name}</Text>
-            <Text color="muted">{data[index].versions?.stable}</Text>
+            <Text fontWeight="medium" fontSize={{sm: 'inherit', md: 'md'}}>
+              {data[index].full_name}
+            </Text>
+            <Text color="muted" fontSize={{sm: 'inherit', md: 'md'}}>
+              {data[index].versions?.stable}
+            </Text>
           </Box>
         </HStack>
       </Fade>
@@ -49,7 +53,9 @@ const Row = ({index, data}: {index: number; data: any}) => (
       <Fade in={true}>
         <ChakraNextLink href={data[index].homepage ?? ''} isExternal>
           <Box>
-            <Text color="muted">{data[index].desc}</Text>
+            <Text color="muted" fontSize={{sm: 'inherit', md: 'md'}}>
+              {data[index].desc}
+            </Text>
           </Box>
         </ChakraNextLink>
       </Fade>
