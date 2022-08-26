@@ -37,19 +37,8 @@ const Row = ({index, data}: {index: number; data: any}) => (
       </Td>
 
       <Td>
-        <Text color="muted">{data[index].desc}</Text>
-      </Td>
-      <Td>
-        <ChakraNextLink
-          href={data[index].homepage ?? ''}
-          isExternal
-          color="red"
-        >
-          <IconButton
-            variant="ghost"
-            icon={<FiLink fontSize="1.25rem" />}
-            aria-label="Homepage"
-          />
+        <ChakraNextLink href={data[index].homepage ?? ''} isExternal>
+          <Text color="muted">{data[index].desc}</Text>
         </ChakraNextLink>
       </Td>
     </Tr>
