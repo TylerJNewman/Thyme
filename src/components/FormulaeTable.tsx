@@ -9,6 +9,7 @@ import {
   Td,
   Text,
   Tr,
+  Skeleton,
 } from '@chakra-ui/react'
 import {useContext} from 'react'
 import {Virtuoso} from 'react-virtuoso'
@@ -55,21 +56,24 @@ const Row = ({index, data}: {index: number; data: any}) => (
   </ScaleFade>
 )
 
-export const MemberTable = (props: TableProps) => {
+export const FormulaeTable = (props: TableProps) => {
   const {data, error} = useContext(FormulaeContext)
 
   if (error) return <div>failed to load</div>
-  if (!data) return <div>loading...</div>
 
   return (
     <Table {...props}>
       <Tbody>
-        <Virtuoso
-          style={{height: '70vh'}}
-          data={data}
-          overscan={0}
-          itemContent={(index, user) => <Row index={index} data={data} />}
-        />
+        {!data ? (
+          <Skeleton height="70vh" />
+        ) : (
+          <Virtuoso
+            style={{height: '70vh'}}
+            data={data}
+            overscan={0}
+            itemContent={index => <Row index={index} data={data} />}
+          />
+        )}
       </Tbody>
     </Table>
   )

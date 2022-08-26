@@ -5,7 +5,7 @@ import {
   useColorModeValue,
 } from '@chakra-ui/react'
 import * as React from 'react'
-import {MemberTable} from './MemberTable'
+import {FormulaeTable} from './FormulaeTable'
 
 export const Table = () => {
   return (
@@ -17,7 +17,7 @@ export const Table = () => {
     >
       <Stack spacing="5">
         <Box overflowX="auto">
-          <MemberTable />
+          <FormulaeTable />
         </Box>
       </Stack>
     </Box>
