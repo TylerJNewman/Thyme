@@ -2,7 +2,7 @@ import {
   Box,
   HStack,
   IconButton,
-  ScaleFade,
+  Fade,
   Table,
   TableProps,
   Tbody,
@@ -27,28 +27,32 @@ import React from 'react'
 const Row = ({index, data}: {index: number; data: any}) => (
   <>
     <Td width="100%">
-      <HStack spacing="3">
-        <IconButton
-          variant="ghost"
-          icon={<LogoSmall fontSize="1.25rem" />}
-          aria-label="Homepage"
-        />
-        <Box>
-          <Text fontWeight="medium">{data[index].full_name}</Text>
-          <Text color="muted">{data[index].versions?.stable}</Text>
-        </Box>
-      </HStack>
+      <Fade in={true}>
+        <HStack spacing="3">
+          <IconButton
+            variant="ghost"
+            icon={<LogoSmall fontSize="1.25rem" />}
+            aria-label="Homepage"
+          />
+          <Box>
+            <Text fontWeight="medium">{data[index].full_name}</Text>
+            <Text color="muted">{data[index].versions?.stable}</Text>
+          </Box>
+        </HStack>
+      </Fade>
     </Td>
     <Td
       style={{
         textAlign: 'end',
       }}
     >
-      <ChakraNextLink href={data[index].homepage ?? ''} isExternal>
-        <Box>
-          <Text color="muted">{data[index].desc}</Text>
-        </Box>
-      </ChakraNextLink>
+      <Fade in={true}>
+        <ChakraNextLink href={data[index].homepage ?? ''} isExternal>
+          <Box>
+            <Text color="muted">{data[index].desc}</Text>
+          </Box>
+        </ChakraNextLink>
+      </Fade>
     </Td>
   </>
 )
@@ -69,13 +73,13 @@ export const FormulaeTable = (props: TableProps) => {
           }}
           components={{
             Table: props => <Table {...props} />,
-            TableRow: Tr,
+            TableRow: props => <Tr {...props} />,
             TableBody: React.forwardRef((props, ref) => (
               <Tbody {...props} ref={ref} />
             )),
           }}
           data={data}
-          overscan={0}
+          overscan={100}
           itemContent={index => <Row index={index} data={data} />}
         />
       )}
