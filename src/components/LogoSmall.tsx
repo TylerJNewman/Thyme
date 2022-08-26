@@ -35,7 +35,7 @@ export const LogoSmall = props => (
               strokeMiterlimit: 4,
               isCustomFont: 'none',
               fontFileUrl: 'none',
-              fill: 'rgb(255,255,255)',
+              fill: 'currentColor',
               fillRule: 'nonzero',
               opacity: 1,
             }}
@@ -109,7 +109,7 @@ export const LogoSmall = props => (
               strokeMiterlimit: 4,
               isCustomFont: 'none',
               fontFileUrl: 'none',
-              fill: 'rgb(255,255,255)',
+              fill: 'currentColor',
               fillRule: 'nonzero',
               opacity: 1,
             }}
@@ -146,7 +146,7 @@ export const LogoSmall = props => (
               strokeMiterlimit: 4,
               isCustomFont: 'none',
               fontFileUrl: 'none',
-              fill: 'rgb(255,255,255)',
+              fill: 'currentColor',
               fillRule: 'nonzero',
               opacity: 1,
             }}
@@ -183,7 +183,7 @@ export const LogoSmall = props => (
               strokeMiterlimit: 4,
               isCustomFont: 'none',
               fontFileUrl: 'none',
-              fill: 'rgb(255,255,255)',
+              fill: 'currentColor',
               fillRule: 'nonzero',
               opacity: 1,
             }}
