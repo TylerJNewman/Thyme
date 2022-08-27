@@ -1,7 +1,5 @@
 import React, {createContext, useContext, useEffect, useState} from 'react'
-import error from 'next/error'
 
-// create context
 const ScrollTableContext = createContext(null)
 
 const ScrollTableContextProvider = ({children}) => {

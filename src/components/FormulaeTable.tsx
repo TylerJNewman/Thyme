@@ -19,11 +19,11 @@ import {
   ModalFooter,
   ModalHeader,
 } from '@chakra-ui/react'
-import {useContext, useState, forwardRef} from 'react'
+import {useState, forwardRef} from 'react'
 import {TableVirtuoso} from 'react-virtuoso'
 
 import {LogoSmall} from './LogoSmall'
-import {FormulaeContext} from '../context/FormulaaContext'
+import {useFormulae} from '../context/FormulaaContext'
 import ChakraNextLink from './ChakraNextLink'
 import {useScrollTable} from '../context/ScrollTableContext'
 
@@ -108,7 +108,7 @@ const FormulaInfoModal = ({
 export const FormulaeTable = () => {
   const {isOpen, onOpen, onClose} = useDisclosure()
   const [overlay, setOverlay] = useState(<OverlayOne />)
-  const {data, error, loading} = useContext(FormulaeContext)
+  const {data, error, loading} = useFormulae()
 
   if (error) return <div>failed to load</div>
 
