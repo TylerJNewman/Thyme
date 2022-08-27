@@ -1,114 +1,17 @@
-import {
-  Box,
-  HStack,
-  IconButton,
-  Fade,
-  Table,
-  Tbody,
-  Td,
-  Text,
-  Tr,
-  Skeleton,
-  ModalOverlay,
-  useDisclosure,
-  Button,
-  Modal,
-  ModalBody,
-  ModalCloseButton,
-  ModalContent,
-  ModalFooter,
-  ModalHeader,
-} from '@chakra-ui/react'
+import {Box, Table, Tbody, Tr, Skeleton, useDisclosure} from '@chakra-ui/react'
 import {useState, forwardRef} from 'react'
 import {TableVirtuoso} from 'react-virtuoso'
 
 import {useFormulae} from 'context/FormulaeContext'
 import {useScrollTable} from 'context/ScrollTableContext'
 
-import {LogoSmall} from 'components/LogoSmall'
-import ChakraNextLink from 'components/ChakraNextLink'
-
-const OverlayOne = () => (
-  <ModalOverlay
-    bg="blackAlpha.300"
-    backdropFilter="blur(10px) hue-rotate(90deg)"
-  />
-)
-
-const Row = ({index, data, setOverlay, onOpen}: any) => {
-  return (
-    <>
-      <Td width="100%">
-        <Fade in={true}>
-          <HStack spacing="3">
-            <IconButton
-              variant="ghost"
-              icon={<LogoSmall fontSize="1.25rem" />}
-              aria-label="formula-info"
-              onClick={() => {
-                setOverlay(<OverlayOne />)
-                onOpen()
-              }}
-            />
-            <Box>
-              <Text fontWeight="medium" fontSize={{sm: 'inherit', md: 'md'}}>
-                {data[index].full_name}
-              </Text>
-              <Text color="muted" fontSize={{sm: 'inherit', md: 'md'}}>
-                {data[index].versions?.stable}
-              </Text>
-            </Box>
-          </HStack>
-        </Fade>
-      </Td>
-      <Td
-        style={{
-          textAlign: 'end',
-        }}
-      >
-        <Fade in={true}>
-          <ChakraNextLink href={data[index].homepage ?? ''} isExternal>
-            <Box>
-              <Text color="muted" fontSize={{sm: 'inherit', md: 'md'}}>
-                {data[index].desc}
-              </Text>
-            </Box>
-          </ChakraNextLink>
-        </Fade>
-      </Td>
-    </>
-  )
-}
-
-interface FormulaInfoModalProps {
-  isOpen: boolean
-  onClose: () => void
-  overlay: any
-}
-
-const FormulaInfoModal = ({
-  isOpen,
-  onClose,
-  overlay,
-}: FormulaInfoModalProps) => (
-  <Modal isCentered isOpen={isOpen} onClose={onClose}>
-    {overlay}
-    <ModalContent>
-      <ModalHeader>Modal Title</ModalHeader>
-      <ModalCloseButton />
-      <ModalBody>
-        <Text>Custom backdrop filters!</Text>
-      </ModalBody>
-      <ModalFooter>
-        <Button onClick={onClose}>Close</Button>
-      </ModalFooter>
-    </ModalContent>
-  </Modal>
-)
+import FormulaModal from './FormulaModal'
+import Overlay from './Overlay'
+import Row from './Row'
 
 export const FormulaeTable = () => {
   const {isOpen, onOpen, onClose} = useDisclosure()
-  const [overlay, setOverlay] = useState(<OverlayOne />)
+  const [overlay, setOverlay] = useState(<Overlay />)
   const {data, error, loading} = useFormulae()
 
   if (error) return <div>failed to load</div>
@@ -148,7 +51,7 @@ export const FormulaeTable = () => {
           )}
         />
       )}
-      <FormulaInfoModal isOpen={isOpen} onClose={onClose} overlay={overlay} />
+      <FormulaModal isOpen={isOpen} onClose={onClose} overlay={overlay} />
     </>
   )
 }
