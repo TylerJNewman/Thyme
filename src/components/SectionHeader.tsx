@@ -1,11 +1,32 @@
-import {Box, Text} from '@chakra-ui/react'
+import React from 'react'
+import {Box, IconButton, Stack, Text} from '@chakra-ui/react'
+import {FaAngleUp} from 'react-icons/fa'
+import {useScrollTable} from '../context/ScrollTableContext'
 
 const SectionHeader = () => {
+  const {goToTop} = useScrollTable()
+
   return (
     <Box as="section" pt={{base: '2', md: '4'}} pb={{base: '3', md: '6'}}>
-      <Text fontSize="3xl" fontWeight="medium">
-        Formulae
-      </Text>
+      <Stack spacing="5">
+        <Stack
+          spacing="4"
+          direction={{base: 'column', md: 'row'}}
+          justify="space-between"
+        >
+          <Box>
+            <Text fontSize="3xl" fontWeight="medium">
+              Formulae
+            </Text>
+          </Box>
+          <IconButton
+            icon={<FaAngleUp fontSize="1.25rem" />}
+            variant="ghost"
+            aria-label="Scroll to top"
+            onClick={goToTop}
+          />
+        </Stack>
+      </Stack>
     </Box>
   )
 }

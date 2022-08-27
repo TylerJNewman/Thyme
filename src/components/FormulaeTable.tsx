@@ -4,7 +4,6 @@ import {
   IconButton,
   Fade,
   Table,
-  TableProps,
   Tbody,
   Td,
   Text,
@@ -16,9 +15,9 @@ import {TableVirtuoso} from 'react-virtuoso'
 
 import {LogoSmall} from './LogoSmall'
 import {FormulaeContext} from '../context/FormulaaContext'
-import {FiLink} from 'react-icons/fi'
 import ChakraNextLink from './ChakraNextLink'
 import React from 'react'
+import {useScrollTable} from '../context/ScrollTableContext'
 
 const Row = ({index, data}: {index: number; data: any}) => (
   <>
@@ -59,10 +58,14 @@ const Row = ({index, data}: {index: number; data: any}) => (
   </>
 )
 
-export const FormulaeTable = (props: TableProps) => {
+export const FormulaeTable = () => {
   const {data, error} = useContext(FormulaeContext)
 
   if (error) return <div>failed to load</div>
+
+  const {ref} = useScrollTable()
+
+  console.log(ref)
 
   return (
     <>
@@ -70,6 +73,7 @@ export const FormulaeTable = (props: TableProps) => {
         <Skeleton height="70vh" />
       ) : (
         <TableVirtuoso
+          ref={ref}
           style={{
             height: '70vh',
           }}
