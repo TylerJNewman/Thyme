@@ -9,7 +9,7 @@ const Index = () => {
   return (
     <ScrollTableContextProvider>
       <Nav />
-      <Container py={{base: '4', md: '8'}}>
+      <Container py={{base: '4', md: '8'}} maxW="1044px">
         <SectionHeader />
         <Table />
       </Container>

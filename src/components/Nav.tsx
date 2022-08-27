@@ -6,7 +6,7 @@ import SearchBar from './SearchBar'
 export default function Nav() {
   return (
     <Box as="nav">
-      <Container py={{base: '3', lg: '4'}}>
+      <Container py={{base: '3', lg: '4'}} maxW="1044">
         <Flex justify="space-between">
           <Box px={3}>
             <Logo />
