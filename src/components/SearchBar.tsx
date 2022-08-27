@@ -1,7 +1,7 @@
 import {Icon, Input, InputGroup, InputLeftElement} from '@chakra-ui/react'
 import {FiSearch} from 'react-icons/fi'
-import {useFormulae} from '../context/FormulaaContext'
-import {useScrollTable} from '../context/ScrollTableContext'
+import {useFormulae} from 'context/FormulaeContext'
+import {useScrollTable} from 'context/ScrollTableContext'
 
 const SearchBar = () => {
   const {setSearchPattern} = useFormulae()

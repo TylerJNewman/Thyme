@@ -1,7 +1,7 @@
 import React from 'react'
 import {Box, IconButton, Stack, Text} from '@chakra-ui/react'
 import {FaAngleUp} from 'react-icons/fa'
-import {useScrollTable} from '../context/ScrollTableContext'
+import {useScrollTable} from 'context/ScrollTableContext'
 
 const SectionHeader = () => {
   const {goToTop} = useScrollTable()

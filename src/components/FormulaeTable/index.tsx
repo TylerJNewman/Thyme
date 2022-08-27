@@ -22,10 +22,11 @@ import {
 import {useState, forwardRef} from 'react'
 import {TableVirtuoso} from 'react-virtuoso'
 
-import {LogoSmall} from './LogoSmall'
-import {useFormulae} from '../context/FormulaaContext'
-import ChakraNextLink from './ChakraNextLink'
-import {useScrollTable} from '../context/ScrollTableContext'
+import {useFormulae} from 'context/FormulaeContext'
+import {useScrollTable} from 'context/ScrollTableContext'
+
+import {LogoSmall} from 'components/LogoSmall'
+import ChakraNextLink from 'components/ChakraNextLink'
 
 const OverlayOne = () => (
   <ModalOverlay

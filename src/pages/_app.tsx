@@ -2,10 +2,10 @@ import {SWRConfig} from 'swr'
 import {ChakraProvider} from '@chakra-ui/react'
 
 import {AppProps} from 'next/app'
-import {theme} from '../theme'
-import localStorageProvider from '../lib/localStorageProvider'
-import fetcher from '../lib/fetchJson'
-import {FormulaeContextProvider} from '../context/FormulaaContext'
+import localStorageProvider from 'lib/localStorageProvider'
+import fetcher from 'lib/fetchJson'
+import {FormulaeContextProvider} from 'context/FormulaeContext'
+import {theme} from 'theme'
 
 function MyApp({Component, pageProps}: AppProps) {
   return (
