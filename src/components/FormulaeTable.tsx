@@ -108,7 +108,7 @@ const FormulaInfoModal = ({
 export const FormulaeTable = () => {
   const {isOpen, onOpen, onClose} = useDisclosure()
   const [overlay, setOverlay] = useState(<OverlayOne />)
-  const {data, error} = useContext(FormulaeContext)
+  const {data, error, loading} = useContext(FormulaeContext)
 
   if (error) return <div>failed to load</div>
 
@@ -118,7 +118,7 @@ export const FormulaeTable = () => {
 
   return (
     <>
-      {!data ? (
+      {loading ? (
         <Skeleton height="70vh" />
       ) : data?.length === 0 ? (
         <Box p="5">No results found</Box>

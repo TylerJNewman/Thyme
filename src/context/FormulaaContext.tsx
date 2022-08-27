@@ -17,7 +17,9 @@ const FormulaeContextProvider = ({children}) => {
 
   return (
     // the Provider gives access to the context to its children
-    <FormulaeContext.Provider value={{data: result, error, setSearchPattern}}>
+    <FormulaeContext.Provider
+      value={{data: result, error, loading: !data, setSearchPattern}}
+    >
       {children}
     </FormulaeContext.Provider>
   )
