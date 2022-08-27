@@ -65,12 +65,14 @@ export const FormulaeTable = () => {
 
   const {ref} = useScrollTable()
 
-  console.log(ref)
+  console.log(data)
 
   return (
     <>
       {!data ? (
         <Skeleton height="70vh" />
+      ) : data?.length === 0 ? (
+        <Box p="5">No results found</Box>
       ) : (
         <TableVirtuoso
           ref={ref}
