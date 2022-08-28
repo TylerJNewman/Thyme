@@ -1,40 +1,26 @@
 import {
   Modal,
   ModalContent,
-  ModalHeader,
   ModalCloseButton,
   ModalBody,
   ModalFooter,
   Button,
   Text,
   Avatar,
-  Badge,
   Box,
   HStack,
   Icon,
   Link,
   SimpleGrid,
   Stack,
-  useColorModeValue,
-  Wrap,
-  Tag,
-  Heading,
-  StackDivider,
   useBreakpointValue,
+  Heading,
 } from '@chakra-ui/react'
-import ChakraNextLink from 'components/ChakraNextLink'
 import {Octokit} from '@octokit/rest'
 import {useEffect, useState} from 'react'
-import getDownloadCount from 'utils/getDownloadCount'
-import {
-  FaCloudDownloadAlt,
-  FaGithub,
-  FaLinkedin,
-  FaStar,
-  FaTwitter,
-} from 'react-icons/fa'
-import {stats, Stat} from './Stat'
+import {FaGithub, FaLinkedin, FaTwitter} from 'react-icons/fa'
 import {getTwitterDate} from 'utils/getTwitterDate'
+import Header from './Header'
 
 const octokit = new Octokit({auth: process.env.NEXT_PUBLIC_GITHUB_TOKEN})
 
@@ -102,81 +88,6 @@ export const members = [
   },
 ]
 
-const Header = ({repoData, owner, repo, version, homepage}) => {
-  const [downloadCount, setDownloadCount] = useState(null)
-
-  useEffect(() => {
-    if (!repoData) return
-
-    const getDownloads = async () => {
-      const {data: releases} = await octokit.request(
-        `GET /repos/${owner}/${repo}/releases/latest`,
-        {
-          owner,
-          repo,
-        },
-      )
-
-      const count = getDownloadCount(releases)
-      setDownloadCount(count)
-    }
-    getDownloads()
-  }, [repoData, owner, repo])
-
-  return (
-    <ModalHeader>
-      <HStack spacing="4">
-        <Avatar
-          src={repoData?.owner?.avatar_url}
-          name={repoData?.owner?.login}
-          boxSize={{base: '12', sm: '14'}}
-        />
-        <Box>
-          <HStack spacing={3}>
-            <ChakraNextLink href={homepage ?? ''} isExternal>
-              <Text fontSize="lg" fontWeight="medium">
-                {repoData?.name}
-              </Text>
-            </ChakraNextLink>
-            {downloadCount !== null ? (
-              <HStack spacing={1}>
-                <Icon as={FaCloudDownloadAlt} fontSize="sm" />
-                <Text color="muted" fontSize="sm">
-                  {downloadCount}
-                </Text>
-              </HStack>
-            ) : null}
-            {repoData?.stargazers_count ? (
-              <HStack spacing={1}>
-                <Icon as={FaStar} fontSize="sm" />
-                <Text color="muted" fontSize="sm">
-                  {repoData?.stargazers_count}
-                </Text>
-              </HStack>
-            ) : null}
-          </HStack>
-          <Text color="muted" fontSize="sm">
-            v{version}
-          </Text>
-        </Box>
-      </HStack>
-      {repoData?.topics?.length ? (
-        <Wrap
-          shouldWrapChildren
-          mt="5"
-          color={useColorModeValue('gray.600', 'gray.300')}
-        >
-          {repoData?.topics?.map(tag => (
-            <Tag key={tag} color="inherit" px="3">
-              {tag}
-            </Tag>
-          ))}
-        </Wrap>
-      ) : null}
-    </ModalHeader>
-  )
-}
-
 const Members = ({members}) => {
   return (
     <SimpleGrid
@@ -187,7 +98,7 @@ const Members = ({members}) => {
     >
       {members.map(member => (
         <Stack key={member.name} spacing={{base: '4', md: '5'}} direction="row">
-          <Avatar src={member.image} boxSize={{base: '16', md: '20'}} />
+          <Avatar src={member.image} boxSize={{base: '12', md: '16'}} />
           <Stack spacing="4">
             <Stack>
               <Box>
@@ -243,14 +154,7 @@ const FormulaModal = ({
     getRepo()
   }, [formula])
 
-  const isMobile = useBreakpointValue({base: true, md: false})
-
   const size = useBreakpointValue({base: 'xs', md: 'sm'})
-
-  // get open issues count from github
-  // get close issues count from github
-  // get contributors count from github
-  // issues url example: https://api.github.com/search/issues?q=repo:${repo}+type:issue+state:closed
 
   useEffect(() => {
     if (!formula) return
@@ -285,27 +189,40 @@ const FormulaModal = ({
         />
         <ModalCloseButton />
         <ModalBody>
-          <Text>{/* <pre>{JSON.stringify(repoData, null, 2)}</pre> */}</Text>
-          <Stack spacing={{base: '12', md: '16'}}>
+          <Stack spacing={{base: '4', md: '8'}}>
             <Stack spacing={{base: '1', md: '2'}}>
-              <Text fontSize={{base: 'lg', md: 'xl'}} color="muted" maxW="3xl">
-                {formula.desc}
-              </Text>
               {repoData?.license?.name ? (
-                <Text fontSize={size}>License: {repoData?.license?.name}</Text>
-              ) : null}
-              {repoData?.updated_at ? (
-                <Text fontSize={size}>
-                  Latest Commit: {getTwitterDate(repoData?.updated_at)}
+                <Text color="accent" fontSize={size}>
+                  {repoData?.license?.name}
                 </Text>
               ) : null}
-              {openIssues ? (
-                <Text fontSize={size}>Open issues: {openIssues}</Text>
-              ) : null}
-              {closedIssues ? (
-                <Text fontSize={size}>Closed issues: {closedIssues}</Text>
-              ) : null}
+              <HStack mb={{base: '1', md: '2'}}>
+                {repoData?.updated_at ? (
+                  <Text fontSize={size}>
+                    Latest Commit: {getTwitterDate(repoData?.updated_at)}
+                  </Text>
+                ) : null}
+                {openIssues ? (
+                  <Text fontSize={size}>Open issues: {openIssues}</Text>
+                ) : null}
+                {closedIssues ? (
+                  <Text fontSize={size}>Closed issues: {closedIssues}</Text>
+                ) : null}
+              </HStack>
+              <Text fontSize={{base: 'lg', md: 'xl'}} maxW="3xl">
+                {formula.desc}
+              </Text>
             </Stack>
+            {/* <Heading size={useBreakpointValue({base: 'xs', md: 'xs'})}>
+              Team
+            </Heading> */}
+            <Text
+              fontSize={{base: 'sm', md: 'md'}}
+              color="accent"
+              fontWeight="semibold"
+            >
+              Team
+            </Text>
             <Members members={members} />
           </Stack>
         </ModalBody>
