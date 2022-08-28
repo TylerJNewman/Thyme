@@ -191,19 +191,20 @@ const FormulaModal = ({
         <ModalBody>
           <Stack spacing={{base: '4', md: '8'}}>
             <Stack spacing={{base: '1', md: '2'}}>
-              {repoData?.license?.name ? (
-                <Text color="accent" fontSize={size}>
-                  {repoData?.license?.name}
-                </Text>
-              ) : null}
               <HStack mb={{base: '1', md: '2'}}>
                 {repoData?.updated_at ? (
-                  <Text fontSize={size}>
-                    Latest Commit: {getTwitterDate(repoData?.updated_at)}
-                  </Text>
+                  <>
+                    <Text fontSize={size}>
+                      Latest Commit: {getTwitterDate(repoData?.updated_at)}
+                    </Text>
+                    <Text fontSize={size}>·</Text>
+                  </>
                 ) : null}
                 {openIssues ? (
-                  <Text fontSize={size}>Open issues: {openIssues}</Text>
+                  <>
+                    <Text fontSize={size}>Open issues: {openIssues}</Text>
+                    <Text fontSize={size}>·</Text>
+                  </>
                 ) : null}
                 {closedIssues ? (
                   <Text fontSize={size}>Closed issues: {closedIssues}</Text>
@@ -213,11 +214,8 @@ const FormulaModal = ({
                 {formula.desc}
               </Text>
             </Stack>
-            {/* <Heading size={useBreakpointValue({base: 'xs', md: 'xs'})}>
-              Team
-            </Heading> */}
             <Text
-              fontSize={{base: 'sm', md: 'md'}}
+              fontSize={{base: 'lg', md: 'xl'}}
               color="accent"
               fontWeight="semibold"
             >
