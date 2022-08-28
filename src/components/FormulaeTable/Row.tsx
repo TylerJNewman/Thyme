@@ -3,7 +3,12 @@ import ChakraNextLink from 'components/ChakraNextLink'
 import {LogoSmall} from 'components/LogoSmall'
 import Overlay from './Overlay'
 
-const Row = ({index, data, setOverlay, onOpen}: any) => {
+const isRepo = (homepage: string) => homepage.includes('github.com')
+
+const Row = ({index, data, setOverlay, onOpen, setCurrentFormula}: any) => {
+  const formula = data[index]
+  const {full_name, versions, homepage, desc} = formula
+
   return (
     <>
       <Td width="100%">
@@ -14,16 +19,21 @@ const Row = ({index, data, setOverlay, onOpen}: any) => {
               icon={<LogoSmall fontSize="1.25rem" />}
               aria-label="formula-info"
               onClick={() => {
+                setCurrentFormula(formula)
                 setOverlay(<Overlay />)
                 onOpen()
               }}
+              disabled={!isRepo(homepage)}
             />
+
             <Box>
-              <Text fontWeight="medium" fontSize={{sm: 'inherit', md: 'md'}}>
-                {data[index].full_name}
-              </Text>
+              <ChakraNextLink href={homepage ?? ''} isExternal>
+                <Text fontWeight="medium" fontSize={{sm: 'inherit', md: 'md'}}>
+                  {full_name}
+                </Text>
+              </ChakraNextLink>
               <Text color="muted" fontSize={{sm: 'inherit', md: 'md'}}>
-                {data[index].versions?.stable}
+                {versions?.stable}
               </Text>
             </Box>
           </HStack>
@@ -35,13 +45,11 @@ const Row = ({index, data, setOverlay, onOpen}: any) => {
         }}
       >
         <Fade in={true}>
-          <ChakraNextLink href={data[index].homepage ?? ''} isExternal>
-            <Box>
-              <Text color="muted" fontSize={{sm: 'inherit', md: 'md'}}>
-                {data[index].desc}
-              </Text>
-            </Box>
-          </ChakraNextLink>
+          <Box>
+            <Text color="muted" fontSize={{sm: 'inherit', md: 'md'}}>
+              {desc}
+            </Text>
+          </Box>
         </Fade>
       </Td>
     </>

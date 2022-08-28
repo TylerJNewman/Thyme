@@ -10,15 +10,20 @@ import Overlay from './Overlay'
 import Row from './Row'
 
 export const FormulaeTable = () => {
+  const {ref} = useScrollTable()
   const {isOpen, onOpen, onClose} = useDisclosure()
+  const [currentFormula, setCurrentFormula] = useState(null)
+  const clearCurrentFormula = () => setCurrentFormula(null)
+
+  const handleClose = () => {
+    clearCurrentFormula()
+    onClose()
+  }
+
   const [overlay, setOverlay] = useState(<Overlay />)
   const {data, error, loading} = useFormulae()
 
   if (error) return <div>failed to load</div>
-
-  const {ref} = useScrollTable()
-
-  console.log(data.slice(0, 10))
 
   return (
     <>
@@ -47,11 +52,17 @@ export const FormulaeTable = () => {
               data={data}
               setOverlay={setOverlay}
               onOpen={onOpen}
+              setCurrentFormula={setCurrentFormula}
             />
           )}
         />
       )}
-      <FormulaModal isOpen={isOpen} onClose={onClose} overlay={overlay} />
+      <FormulaModal
+        isOpen={isOpen}
+        onClose={handleClose}
+        overlay={overlay}
+        formula={currentFormula}
+      />
     </>
   )
 }
