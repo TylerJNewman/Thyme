@@ -14,17 +14,20 @@ const Row = ({index, data, setOverlay, onOpen, setCurrentFormula}: any) => {
       <Td width="100%">
         <Fade in={true}>
           <HStack spacing="3">
-            <IconButton
-              variant="ghost"
-              icon={<LogoSmall fontSize="1.25rem" />}
-              aria-label="formula-info"
-              onClick={() => {
-                setCurrentFormula(formula)
-                setOverlay(<Overlay />)
-                onOpen()
-              }}
-              disabled={!isRepo(homepage)}
-            />
+            {isRepo(homepage) ? (
+              <IconButton
+                variant="ghost"
+                icon={<LogoSmall fontSize="1.25rem" />}
+                aria-label="formula-info"
+                onClick={() => {
+                  setCurrentFormula(formula)
+                  setOverlay(<Overlay />)
+                  onOpen()
+                }}
+              />
+            ) : (
+              <Box width="40px" />
+            )}
 
             <Box>
               <ChakraNextLink href={homepage ?? ''} isExternal>
@@ -32,9 +35,17 @@ const Row = ({index, data, setOverlay, onOpen, setCurrentFormula}: any) => {
                   {full_name}
                 </Text>
               </ChakraNextLink>
-              <Text color="muted" fontSize={{sm: 'inherit', md: 'md'}}>
-                v{versions?.stable}
-              </Text>
+              {/* Hack to suppress google translate */}
+              {versions?.stable ? (
+                <HStack spacing={0}>
+                  <Text color="muted" fontSize={{sm: 'inherit', md: 'md'}}>
+                    v
+                  </Text>
+                  <Text color="muted" fontSize={{sm: 'inherit', md: 'md'}}>
+                    {versions?.stable}
+                  </Text>
+                </HStack>
+              ) : null}
             </Box>
           </HStack>
         </Fade>

@@ -70,9 +70,17 @@ const Header = ({repoData, owner, repo, version, homepage}) => {
               </HStack>
             ) : null}
           </HStack>
-          <Text color="muted" fontSize="sm">
-            v{version}
-          </Text>
+          {/* Hack to suppress google translate */}
+          {version ? (
+            <HStack spacing={0}>
+              <Text color="muted" fontSize="sm">
+                v
+              </Text>
+              <Text color="muted" fontSize="sm">
+                {version}
+              </Text>
+            </HStack>
+          ) : null}
         </Box>
       </HStack>
       {repoData?.topics?.length ? (
