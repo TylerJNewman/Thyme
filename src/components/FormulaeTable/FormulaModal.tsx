@@ -9,16 +9,15 @@ import {
   Avatar,
   Box,
   HStack,
-  Icon,
-  Link,
   SimpleGrid,
   Stack,
   useBreakpointValue,
-  Heading,
+  Badge,
+  useColorModeValue,
 } from '@chakra-ui/react'
 import {Octokit} from '@octokit/rest'
+import ChakraNextLink from 'components/ChakraNextLink'
 import {useEffect, useState} from 'react'
-import {FaGithub, FaLinkedin, FaTwitter} from 'react-icons/fa'
 import {getTwitterDate} from 'utils/getTwitterDate'
 import Header from './Header'
 
@@ -88,7 +87,22 @@ export const members = [
   },
 ]
 
-const Members = ({members}) => {
+const Members = ({owner, repo}) => {
+  const [contributors, setContributors] = useState([])
+
+  useEffect(() => {
+    const getContributors = async () => {
+      const {data} = await octokit.repos.listContributors({
+        owner,
+        repo,
+      })
+      setContributors(data)
+    }
+    getContributors()
+  }, [owner, repo])
+
+  if (!contributors.length) return null
+
   return (
     <SimpleGrid
       columns={{base: 1, md: 2}}
@@ -96,26 +110,32 @@ const Members = ({members}) => {
       rowGap={{base: '10', lg: '12'}}
       flex="1"
     >
-      {members.map(member => (
-        <Stack key={member.name} spacing={{base: '4', md: '5'}} direction="row">
-          <Avatar src={member.image} boxSize={{base: '12', md: '16'}} />
+      {contributors?.map(contributor => (
+        <Stack
+          key={contributor.login}
+          spacing={{base: '4', md: '5'}}
+          direction="row"
+        >
+          <Avatar
+            src={contributor.avatar_url}
+            boxSize={{base: '12', md: '16'}}
+          />
           <Stack spacing="4">
             <Stack>
               <Box>
-                <Text fontWeight="medium" fontSize="lg">
-                  {member.name}
-                </Text>
-                <Text color="accent">{member.role}</Text>
+                <ChakraNextLink href={contributor.html_url ?? ''} isExternal>
+                  <Text fontWeight="medium" fontSize="lg">
+                    {contributor.login}
+                  </Text>
+                </ChakraNextLink>
+                {contributor?.site_admin ? (
+                  <Badge colorScheme={'blue'}>Admin</Badge>
+                ) : null}
               </Box>
-              <Text color="muted">{member.description}</Text>
+              <Text color="muted" fontSize={{base: 'sm'}}>
+                #commits: {contributor?.contributions.toLocaleString('en-US')}
+              </Text>
             </Stack>
-            <HStack spacing="4" color="subtle">
-              {[FaGithub, FaLinkedin, FaTwitter].map((item, id) => (
-                <Link href="#" key={id}>
-                  <Icon as={item} boxSize="5" />
-                </Link>
-              ))}
-            </HStack>
           </Stack>
         </Stack>
       ))}
@@ -154,8 +174,6 @@ const FormulaModal = ({
     getRepo()
   }, [formula])
 
-  const size = useBreakpointValue({base: 'xs', md: 'sm'})
-
   useEffect(() => {
     if (!formula) return
     const getIssues = async () => {
@@ -170,6 +188,8 @@ const FormulaModal = ({
 
     getIssues()
   }, [formula])
+
+  const textColor = useColorModeValue('gray.700', 'gray.400')
 
   return (
     <Modal
@@ -189,25 +209,31 @@ const FormulaModal = ({
         />
         <ModalCloseButton />
         <ModalBody>
-          <Stack spacing={{base: '4', md: '8'}}>
+          <Stack spacing={{base: '2', md: '4'}}>
             <Stack spacing={{base: '1', md: '2'}}>
               <HStack mb={{base: '1', md: '2'}}>
                 {repoData?.updated_at ? (
                   <>
-                    <Text fontSize={size}>
-                      Latest Commit: {getTwitterDate(repoData?.updated_at)}
+                    <Text fontWeight="medium" color={textColor}>
+                      Updated: {getTwitterDate(repoData?.updated_at)}
                     </Text>
-                    <Text fontSize={size}>·</Text>
+                    <Text fontWeight="medium" color={textColor}>
+                      ·
+                    </Text>
                   </>
                 ) : null}
-                {openIssues ? (
+                {openIssues || closedIssues ? (
                   <>
-                    <Text fontSize={size}>Open issues: {openIssues}</Text>
-                    <Text fontSize={size}>·</Text>
+                    <Text fontWeight="medium" color={textColor}>
+                      Open issues: {openIssues ?? 0}
+                    </Text>
+                    <Text fontWeight="medium" color={textColor}>
+                      ·
+                    </Text>
+                    <Text fontWeight="medium" color={textColor}>
+                      Closed issues: {closedIssues ?? 0}
+                    </Text>
                   </>
-                ) : null}
-                {closedIssues ? (
-                  <Text fontSize={size}>Closed issues: {closedIssues}</Text>
                 ) : null}
               </HStack>
               <Text fontSize={{base: 'lg', md: 'xl'}} maxW="3xl">
@@ -221,7 +247,7 @@ const FormulaModal = ({
             >
               Team
             </Text>
-            <Members members={members} />
+            <Members owner={owner} repo={repo} />
           </Stack>
         </ModalBody>
         <ModalFooter>
