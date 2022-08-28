@@ -24,7 +24,8 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "src/components/AnotherOne.js"
+    "src/components/AnotherOne.js",
+    "src/lib/fetchJson.js"
   ],
   "exclude": [
     "node_modules"
