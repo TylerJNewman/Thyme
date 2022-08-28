@@ -33,7 +33,7 @@ const Row = ({index, data, setOverlay, onOpen, setCurrentFormula}: any) => {
                 </Text>
               </ChakraNextLink>
               <Text color="muted" fontSize={{sm: 'inherit', md: 'md'}}>
-                {versions?.stable}
+                v{versions?.stable}
               </Text>
             </Box>
           </HStack>
