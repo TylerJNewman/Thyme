@@ -1,272 +1,80 @@
-// @ts-nocheck
-import {Icon} from '@chakra-ui/react'
-export const LogoSmall = props => (
-  <Icon viewBox="0 0 1000 1000" {...props}>
-    <desc>{'Created with Fabric.js 3.5.0'}</desc>
-    <defs />
-    <rect x={0} y={0} width="100%" height="100%" fill="rgba(255,255,255,0)" />
-    <g transform="matrix(3.0253 0 0 3.0359 503.2724 498.9779)" id={80354}>
-      <g style={{}}>
-        <g
-          transform="matrix(6.5402 0 0 6.5402 110.2757 68.3757)"
-          id="Layer_1"
-          clipPath="url(#CLIPPATH_15)"
-        >
-          <clipPath id="CLIPPATH_15">
-            <rect
-              transform="matrix(1 0 0 1 29.2168 -10.0285)"
-              id="SVGID_2_"
-              x={-69.05}
-              y={-25}
-              rx={0}
-              ry={0}
-              width={138.1}
-              height={50}
-            />
-          </clipPath>
-          <path
-            style={{
-              stroke: 'none',
-              strokeWidth: 1,
-              strokeDasharray: 'none',
-              strokeLinecap: 'butt',
-              strokeDashoffset: 0,
-              strokeLinejoin: 'miter',
-              strokeMiterlimit: 4,
-              isCustomFont: 'none',
-              fontFileUrl: 'none',
-              fill: 'currentColor',
-              fillRule: 'nonzero',
-              opacity: 1,
-            }}
-            transform=" translate(-40.3332, -35.0285)"
-            d="M 44.6 31.3 l -7.3 -5 c -0.9 -0.6 -2.1 -0.4 -2.8 0.5 c -0.6 0.9 -0.4 2.1 0.5 2.8 l 7.3 5.2 l 0.1 0.1 c 0 0 0 0 0 0.1 c 0 0 0 0 0 0.1 l -0.1 0.1 l -7.3 5.2 c -0.9 0.6 -1.1 1.9 -0.5 2.8 c 0.4 0.5 1 0.9 1.6 0.9 c 0.4 0 0.8 -0.1 1.1 -0.4 l 7.3 -5 c 1.3 -0.8 2 -2 2 -3.5 C 46.6 33.3 45.9 32 44.6 31.3 z"
-            strokeLinecap="round"
-          />
-        </g>
-        <g
-          transform="matrix(6.5402 0 0 6.5402 -45.6226 31.4067)"
-          id="Layer_1"
-          clipPath="url(#CLIPPATH_16)"
-        >
-          <clipPath id="CLIPPATH_16">
-            <rect
-              transform="matrix(1 0 0 1 53.0538 -4.3759)"
-              id="SVGID_2_"
-              x={-69.05}
-              y={-25}
-              rx={0}
-              ry={0}
-              width={138.1}
-              height={50}
-            />
-          </clipPath>
-          <path
-            style={{
-              stroke: 'none',
-              strokeWidth: 1,
-              strokeDasharray: 'none',
-              strokeLinecap: 'butt',
-              strokeDashoffset: 0,
-              strokeLinejoin: 'miter',
-              strokeMiterlimit: 4,
-              // isCustomFont: 'none',
-              // fontFileUrl: 'none',
-              fill: 'rgb(0,142,149)',
-              fillRule: 'nonzero',
-              opacity: 1,
-            }}
-            transform=" translate(-16.4962, -29.3759)"
-            d="M 25.9 30.5 c 0.8 -0.6 0.9 -1.6 0.4 -2.4 c -1.1 -1.5 -4.6 -3.8 -9.3 -1.1 c -0.5 0.3 -1.1 0.8 -1.6 1.1 c -1.5 1.3 -3.8 2.3 -5.9 -0.1 c -0.6 -0.8 -1.8 -0.8 -2.5 -0.1 c -0.8 0.6 -0.8 1.8 -0.1 2.5 c 1.8 1.9 3.6 2.6 5.4 2.6 c 2 0 3.9 -0.9 5.3 -2.1 c 0.4 -0.4 0.8 -0.6 1.1 -0.8 c 3 -1.8 4.5 -0.1 4.9 0.3 C 24.2 31 25.2 31.2 25.9 30.5 z"
-            strokeLinecap="round"
-          />
-        </g>
-        <g
-          transform="matrix(6.5402 0 0 6.5402 32.7669 76.9394)"
-          id="Layer_1"
-          clipPath="url(#CLIPPATH_17)"
-        >
-          <clipPath id="CLIPPATH_17">
-            <rect
-              transform="matrix(1 0 0 1 41.0679 -11.3378)"
-              id="SVGID_2_"
-              x={-69.05}
-              y={-25}
-              rx={0}
-              ry={0}
-              width={138.1}
-              height={50}
-            />
-          </clipPath>
-          <path
-            style={{
-              stroke: 'none',
-              strokeWidth: 1,
-              strokeDasharray: 'none',
-              strokeLinecap: 'butt',
-              strokeDashoffset: 0,
-              strokeLinejoin: 'miter',
-              strokeMiterlimit: 4,
-              isCustomFont: 'none',
-              fontFileUrl: 'none',
-              fill: 'currentColor',
-              fillRule: 'nonzero',
-              opacity: 1,
-            }}
-            transform=" translate(-28.4821, -36.3378)"
-            d="M 29.3 23.9 c -1.1 0.4 -1.6 1.4 -1.4 2.5 c 0 0.1 3.3 11.4 -3.4 19.1 c -0.8 0.9 -0.6 2.1 0.3 2.9 c 0.4 0.4 0.9 0.5 1.4 0.5 c 0.5 0 1.1 -0.3 1.5 -0.8 c 8.2 -9.4 4.4 -22.4 4.3 -22.9 C 31.6 24.1 30.4 23.5 29.3 23.9 z"
-            strokeLinecap="round"
-          />
-        </g>
-        <g
-          transform="matrix(6.5402 0 0 6.5402 -121.6191 77.301)"
-          id="Layer_1"
-          clipPath="url(#CLIPPATH_18)"
-        >
-          <clipPath id="CLIPPATH_18">
-            <rect
-              transform="matrix(1 0 0 1 64.6736 -11.3931)"
-              id="SVGID_2_"
-              x={-69.05}
-              y={-25}
-              rx={0}
-              ry={0}
-              width={138.1}
-              height={50}
-            />
-          </clipPath>
-          <path
-            style={{
-              stroke: 'none',
-              strokeWidth: 1,
-              strokeDasharray: 'none',
-              strokeLinecap: 'butt',
-              strokeDashoffset: 0,
-              strokeLinejoin: 'miter',
-              strokeMiterlimit: 4,
-              isCustomFont: 'none',
-              fontFileUrl: 'none',
-              fill: 'currentColor',
-              fillRule: 'nonzero',
-              opacity: 1,
-            }}
-            transform=" translate(-4.8764, -36.3931)"
-            d="M 5.3 26.4 c 0.4 -1.1 -0.3 -2.1 -1.4 -2.5 c -1.1 -0.4 -2.1 0.3 -2.5 1.4 c -0.1 0.5 -3.9 13.4 4.3 22.9 c 0.4 0.5 1 0.8 1.5 0.8 s 1 -0.1 1.4 -0.5 c 0.9 -0.8 0.9 -2 0.3 -2.9 C 2.1 37.8 5.3 26.5 5.3 26.4 z"
-            strokeLinecap="round"
-          />
-        </g>
-        <g
-          transform="matrix(6.5402 0 0 6.5402 -44.9442 147.9799)"
-          id="Layer_1"
-          clipPath="url(#CLIPPATH_19)"
-        >
-          <clipPath id="CLIPPATH_19">
-            <rect
-              transform="matrix(1 0 0 1 52.95 -22.2)"
-              id="SVGID_2_"
-              x={-69.05}
-              y={-25}
-              rx={0}
-              ry={0}
-              width={138.1}
-              height={50}
-            />
-          </clipPath>
-          <path
-            style={{
-              stroke: 'none',
-              strokeWidth: 1,
-              strokeDasharray: 'none',
-              strokeLinecap: 'butt',
-              strokeDashoffset: 0,
-              strokeLinejoin: 'miter',
-              strokeMiterlimit: 4,
-              isCustomFont: 'none',
-              fontFileUrl: 'none',
-              fill: 'currentColor',
-              fillRule: 'nonzero',
-              opacity: 1,
-            }}
-            transform=" translate(-16.6, -47.2)"
-            d="M 20.4 45.2 h -7.7 c -1.1 0 -2 0.9 -2 2 c 0 1.1 0.9 2 2 2 h 7.8 c 1.1 0 2 -0.9 2 -2 C 22.4 46.1 21.5 45.2 20.4 45.2 z"
-            strokeLinecap="round"
-          />
-        </g>
-        <g
-          transform="matrix(6.5402 0 0 6.5402 -31.7394 -61.9788)"
-          id="Layer_1"
-          clipPath="url(#CLIPPATH_20)"
-        >
-          <clipPath id="CLIPPATH_20">
-            <rect
-              transform="matrix(1 0 0 1 50.931 9.9028)"
-              id="SVGID_2_"
-              x={-69.05}
-              y={-25}
-              rx={0}
-              ry={0}
-              width={138.1}
-              height={50}
-            />
-          </clipPath>
-          <path
-            style={{
-              stroke: 'none',
-              strokeWidth: 1,
-              strokeDasharray: 'none',
-              strokeLinecap: 'butt',
-              strokeDashoffset: 0,
-              strokeLinejoin: 'miter',
-              strokeMiterlimit: 4,
-              isCustomFont: 'none',
-              fontFileUrl: 'none',
-              fill: 'rgb(126,201,192)',
-              fillRule: 'nonzero',
-              opacity: 1,
-            }}
-            transform=" translate(-18.619, -15.0972)"
-            d="M 16.8 22.6 c 0.3 0.1 0.5 0.3 0.9 0.3 c 0.5 0 0.9 -0.3 1.1 -0.6 c 5 -6.9 0.3 -14.1 0 -14.3 c -0.4 -0.8 -1.4 -0.9 -2 -0.4 c -0.6 0.5 -0.9 1.4 -0.4 2 c 0.1 0.3 3.8 5.8 0 11.1 C 16 21.2 16.1 22.1 16.8 22.6 z"
-            strokeLinecap="round"
-          />
-        </g>
-        <g
-          transform="matrix(6.5402 0 0 6.5402 -70.0742 -109.8753)"
-          id="Layer_1"
-          clipPath="url(#CLIPPATH_21)"
-        >
-          <clipPath id="CLIPPATH_21">
-            <rect
-              transform="matrix(1 0 0 1 56.7924 17.2262)"
-              id="SVGID_2_"
-              x={-69.05}
-              y={-25}
-              rx={0}
-              ry={0}
-              width={138.1}
-              height={50}
-            />
-          </clipPath>
-          <path
-            style={{
-              stroke: 'none',
-              strokeWidth: 1,
-              strokeDasharray: 'none',
-              strokeLinecap: 'butt',
-              strokeDashoffset: 0,
-              strokeLinejoin: 'miter',
-              strokeMiterlimit: 4,
-              isCustomFont: 'none',
-              fontFileUrl: 'none',
-              fill: 'rgb(126,201,192)',
-              fillRule: 'nonzero',
-              opacity: 1,
-            }}
-            transform=" translate(-12.7576, -7.7738)"
-            d="M 13.7 15.6 c 0.3 0 0.5 -0.1 0.8 -0.3 c 0.6 -0.5 0.9 -1.4 0.4 -2 c -0.1 -0.3 -3.8 -5.8 0 -11.1 c 0.5 -0.6 0.4 -1.5 -0.4 -2 C 14 -0.3 13.1 0 12.6 0.6 c -5 6.9 -0.3 14.1 0 14.3 C 12.9 15.3 13.4 15.6 13.7 15.6 z"
-            strokeLinecap="round"
-          />
-        </g>
-      </g>
+import { chakra, HTMLChakraProps } from "@chakra-ui/react";
+
+export const Logo = (props: HTMLChakraProps<"svg">) => (
+  <chakra.svg
+    height={["1.5rem", "2rem"]}
+    viewBox="0 0 100 100"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    {...props}
+  >
+    <g
+      fill="none"
+      stroke="currentColor"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="20"
+    >
+      <path
+        transform="scale(.19531)"
+        d="m320.72 500.08c26.1-76.94 55.2-208.56 24.88-363.28"
+      />
+      <path
+        transform="scale(.19531)"
+        d="m285.16 159.32c30.16 5.44 59.4-16.8 59.4-16.8s-19.66-31-49.82-36.46-59.4 16.78-59.4 16.78c0.02 0 19.66 31.04 49.82 36.48z"
+      />
+      <path
+        transform="scale(.19531)"
+        d="m402.88 122.2c-21.6 21.76-58.3 20.32-58.3 20.32s-1.68-36.68 19.92-58.44c21.6-21.74 58.3-20.32 58.3-20.32-0.02 0 1.66 36.7-19.92 58.44z"
+      />
+      <path
+        transform="scale(.19531)"
+        d="m429.84 278.12c-32 15.76-71.8 0.32-71.8 0.32s12-41 44-56.76 71.8-0.34 71.8-0.34-12.02 41.02-44 56.78z"
+      />
+      <path
+        transform="scale(.19531)"
+        d="m317 219.52c-18.88-10.56-41.26-9.76-55.92-7.52v0.02c2.6 13.14 2.98 26.64 1.12 39.92 6 8.56 14 16.86 24.16 22.54 31.14 17.36 71.7 4 71.7 4-0.02 0-9.94-41.6-41.06-58.96z"
+      />
+      <path
+        transform="scale(.19531)"
+        d="m415 423.28c-33.58 12-71.36-7.96-71.36-7.96s16.62-39.32 50.2-51.32 71.38 8 71.38 8-16.66 39.3-50.22 51.28z"
+      />
+      <path
+        transform="scale(.19531)"
+        d="m356.3 94.64c0.64-10.48-0.36-21.82-4.58-32.64-13.54-34.7-55.14-50.88-55.14-50.88s-19.64 40.08-6.12 74.8l0.02-0.02c3.46 8.62 8.52 16.5 14.92 23.22 14 5.56 25 15.92 31.68 23.66 3.52 1.84 6.22 3 7.56 3.6 0.44-9.1 2.54-26.7 11.66-41.74z"
+      />
+      <path
+        transform="scale(.19531)"
+        d="m320.72 500.08c-57.72-57.16-142.6-161.88-184.66-313.84"
+      />
+      <path
+        transform="scale(.19531)"
+        d="m200.2 179.36c-24.56 18.34-60.64 11.54-60.64 11.54s3.72-36.54 28.28-54.88 60.64-11.54 60.64-11.54c-0.02 0-3.74 36.52-28.28 54.88z"
+      />
+      <path
+        transform="scale(.19531)"
+        d="m78.32 198.8c29 9.78 61.24-7.88 61.24-7.88s-14.9-33.56-43.94-43.36-61.22 7.88-61.22 7.88c-0.02-0.02 14.88 33.56 43.92 43.36z"
+      />
+      <path
+        transform="scale(.19531)"
+        d="m250.64 282.88c-20.08 29.46-62.36 35.6-62.36 35.6s-9.72-41.6 10.36-71.06c20.1-29.44 62.36-35.58 62.36-35.58s9.72 41.6-10.36 71.04z"
+      />
+      <path
+        transform="scale(.19531)"
+        d="m123.88 350.32c35.64-0.2 64.4-31.8 64.4-31.8s-29.08-31.32-64.72-31.12c-35.66 0.18-64.38 31.8-64.38 31.8-0.02 0 29.06 31.3 64.7 31.12z"
+      />
+      <path
+        transform="scale(.19531)"
+        d="m320.2 391.94c-16.56 31.56-57.84 42.56-57.84 42.56s-14.44-40.2 2.12-71.78c16.56-31.56 57.84-42.56 57.84-42.56s14.44 40.2-2.12 71.78z"
+      />
+      <path
+        transform="scale(.19531)"
+        d="m202.08 473.52c35.4-4.3 60.28-39 60.28-39s-32.48-27.76-67.88-23.44c-35.4 4.3-60.28 39-60.28 39s32.48 27.72 67.88 23.44z"
+      />
+      <path
+        transform="scale(.19531)"
+        d="m159.66 143.52c2.72-8.88 3.74-18.2 3.02-27.46-3.4-37.1-38.9-64.16-38.9-64.16-0.02 0-30.02 33.1-26.62 70.18 1.06 11.56 5.24 22.16 10.48 31.24 14.88 9.36 24.64 24.2 29.08 32.14 0.94-1.12 2.82-3.4 5.16-6.6 2.58-9.94 7.76-24.12 17.78-35.34z"
+      />
     </g>
-  </Icon>
-)
+  </chakra.svg>
+);

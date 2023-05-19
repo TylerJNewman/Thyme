@@ -1,19 +1,13 @@
-import {Container} from '@chakra-ui/react'
-import Nav from 'components/Nav'
-import {Table} from 'components/Table'
-import SectionHeader from 'components/SectionHeader'
-import {ScrollTableContextProvider} from 'context/ScrollTableContext'
+import Home from "components/Home";
+import { Layout } from "components/Layout";
+import React from "react";
 
 const Index = () => {
   return (
-    <ScrollTableContextProvider>
-      <Nav />
-      <Container py={{base: '4', md: '8'}} maxW="1044px">
-        <SectionHeader />
-        <Table />
-      </Container>
-    </ScrollTableContextProvider>
-  )
-}
+    <Layout>
+      <Home />
+    </Layout>
+  );
+};
 
-export default Index
+export default Index;

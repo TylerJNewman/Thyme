@@ -1,34 +1,54 @@
-import React from 'react'
-import {Box, IconButton, Stack, Text} from '@chakra-ui/react'
-import {FaAngleUp} from 'react-icons/fa'
-import {useScrollTable} from 'context/ScrollTableContext'
+import React from "react";
+import {
+  Box,
+  Container,
+  Heading,
+  Icon,
+  IconButton,
+  Input,
+  InputGroup,
+  InputLeftElement,
+  Stack,
+  Text,
+} from "@chakra-ui/react";
+import { FaAngleUp } from "react-icons/fa";
+import { useScrollTable } from "context/ScrollTableContext";
+import { FiSearch } from "react-icons/fi";
 
 const SectionHeader = () => {
-  const {goToTop} = useScrollTable()
+  const { goToTop } = useScrollTable();
 
   return (
-    <Box as="section" pt={{base: '2', md: '4'}} pb={{base: '3', md: '6'}}>
-      <Stack spacing="5">
+    <Box
+      as="section"
+      bg="bg-surface"
+      pt={{ base: "4", md: "8" }}
+      pb={{ base: "12", md: "24" }}
+    >
+      <Container>
         <Stack
           spacing="4"
-          direction={{base: 'column', md: 'row'}}
+          direction={{ base: "column", md: "row" }}
           justify="space-between"
         >
-          <Box>
-            <Text fontSize="3xl" fontWeight="medium">
-              Formulae
+          <Stack spacing="1">
+            <Heading size={{ base: "xs", md: "sm" }} fontWeight="medium">
+              Thyme Explorer
+            </Heading>
+            <Text color="muted">
+              Search for npm packages and get their github repo info
             </Text>
-          </Box>
-          <IconButton
-            icon={<FaAngleUp fontSize="1.25rem" />}
-            variant="ghost"
-            aria-label="Scroll to top"
-            onClick={goToTop}
-          />
+          </Stack>
+          <InputGroup maxW={{ sm: "xs" }}>
+            <InputLeftElement pointerEvents="none">
+              <Icon as={FiSearch} color="muted" boxSize="5" />
+            </InputLeftElement>
+            <Input placeholder="Search" />
+          </InputGroup>
         </Stack>
-      </Stack>
+      </Container>
     </Box>
-  )
-}
+  );
+};
 
-export default SectionHeader
+export default SectionHeader;

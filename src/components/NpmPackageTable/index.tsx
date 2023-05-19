@@ -16,7 +16,7 @@ import FormulaModal from "./FormulaModal";
 import Overlay from "./Overlay";
 import Row from "./Row";
 
-export const FormulaeTable = () => {
+export const NpmPackageTable = () => {
   const { ref } = useScrollTable();
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [currentFormula, setCurrentFormula] = useState(null);

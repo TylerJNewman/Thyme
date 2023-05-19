@@ -1,4 +1,4 @@
-# Tea Assement
+# Tea Assessment
 
 Render a list of formula from Homebrew
 
@@ -12,6 +12,11 @@ Expectations: use of the GitHub API and React. There’s a lot of data, don’t 
 all of it, be selective for the UX and for your own time.
 
 ## Getting Started
+
+### Configure env file
+
+Within the project directory you'll find a `.env.local.tea` file just rename it
+as `.env.local`.
 
 ### Setup
 
