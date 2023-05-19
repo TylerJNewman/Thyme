@@ -1,12 +1,11 @@
-# Tea Assessment
+# Thyme
 
-Render a list of formula from Homebrew
+TODO:
 
-- When clicking a formula render enough information about that formula to be
-  useful to a developer who is interested in that formula
-- Show the users who contributed to each formula
+- When clicking a package render enough information about that package to be
+  useful to a developer who is interested in that package
+- Show the users who contributed to each package
 - Clicking on usernames should open their profile page on GitHub
-- Add some flair
 
 Expectations: use of the GitHub API and React. There’s a lot of data, don’t show
 all of it, be selective for the UX and for your own time.
@@ -15,8 +14,8 @@ all of it, be selective for the UX and for your own time.
 
 ### Configure env file
 
-Within the project directory you'll find a `.env.local.tea` file just rename it
-as `.env.local`.
+Within the project directory you'll find a `.env.local.thyme` file just rename
+it as `.env.local`.
 
 ### Setup
 

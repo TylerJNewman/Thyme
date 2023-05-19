@@ -12,7 +12,7 @@ import { TableVirtuoso } from "react-virtuoso";
 import { useNpmPackages } from "context/NpmPackageContext";
 import { useScrollTable } from "context/ScrollTableContext";
 
-import FormulaModal from "./FormulaModal";
+import FormulaModal from "./Modal";
 import Overlay from "./Overlay";
 import Row from "./Row";
 
